@@ -259,3 +259,42 @@
     justify-content: center;
   }
 }
+
+/* === COOKIE UNIQUENESS — generator-services-template === */
+.backdrop {
+  bottom: 1.25rem !important;
+  right: auto !important;
+  left: 1.25rem !important;
+  top: auto !important;
+  max-width: 380px !important;
+  transform: none;
+}
+
+.card {
+  background: linear-gradient(145deg, $obsidian 0%, color.adjust($obsidian, $lightness: 4%) 100%) !important;
+  border: 3px solid $orange !important;
+  border-radius: 0 !important;
+  padding: 1.75rem !important;
+  border-top: 3px solid $orange !important;
+  
+}
+
+.iconWrap {
+  border-radius: 4px !important;
+  background: rgba($orange, 0.14) !important;
+  border-color: rgba($orange, 0.28) !important;
+  color: $orange !important;
+}
+
+.btnAccept {
+  background: $green !important;
+  color: $obsidian !important;
+  border-radius: 999px !important;
+  &:hover { filter: brightness(1.08); }
+}
+
+.btnDecline,
+.btnEssential {
+  border-radius: 999px !important;
+}
+/* end cookie uniqueness */

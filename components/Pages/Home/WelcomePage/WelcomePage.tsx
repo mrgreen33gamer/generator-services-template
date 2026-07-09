@@ -129,18 +129,23 @@ function ToggleSwitch({
 
 function PanelChrome({ children }: { children: React.ReactNode }) {
   return (
-    <div className={styles.panel}>
+    <div className={`${styles.panel} ${styles.atsPanel}`}>
       <div className={styles.panelBezel} aria-hidden="true">
-        <span className={styles.screw} />
-        <span className={styles.screw} />
-        <span className={styles.panelTitle}>CONTROL</span>
-        <span className={styles.screw} />
-        <span className={styles.screw} />
+        <span className={styles.atsScrew} />
+        <span className={styles.panelTitle}>TRANSFER SWITCH</span>
+        <span className={styles.atsScrew} />
+      </div>
+      <div className={styles.atsSwitchRow} aria-hidden="true">
+        <span className={styles.atsSource}>UTILITY</span>
+        <span className={styles.atsToggle}>
+          <span className={styles.atsKnob} />
+        </span>
+        <span className={`${styles.atsSource} ${styles.atsSourceActive}`}>STANDBY</span>
       </div>
       <div className={styles.panelStatus} aria-hidden="true">
         <span className={styles.statusLed} />
-        <span className={styles.statusText}>SYSTEM ACTIVE</span>
-        <span className={styles.statusTime}>LIVE</span>
+        <span className={styles.statusText}>AUTO TRANSFER READY</span>
+        <span className={styles.statusTime}>ATS</span>
       </div>
       <div className={styles.panelBody}>{children}</div>
     </div>
