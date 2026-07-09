@@ -38,7 +38,7 @@ const HighlightedClient: React.FC<HighlightedClientProps> = ({
               <Link
                 href={clientLink}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="notransfer switch noreferrer"
                 className={styles.btnPrimary}
               >
                 Visit Website

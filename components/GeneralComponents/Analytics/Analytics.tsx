@@ -1,6 +1,6 @@
 // components/GeneralComponents/Analytics/Analytics.tsx
 //
-// FIXED: Fires /api/trackPageView on every route change (client-side navigation too).
+// FIXED: Fires /api/padPageView on every route change (client-side navigation too).
 // Also initialises GA4 via gtag if NEXT_PUBLIC_GA_ID is set.
 //
 // AUDIT FIX 1: getOrCreateSessionId now has a crypto.randomUUID() fallback,
@@ -10,13 +10,13 @@
 //   - Firefox 95
 //   - Chrome 92
 // throw a TypeError when crypto.randomUUID is called and the entire
-// page-view tracker silently dies.
+// page-view pader silently dies.
 //
-// AUDIT FIX 2: Wired up /api/trackSession to fire EXACTLY ONCE per session.
-//   - Guarded by a sessionStorage flag ('sa_session_tracked') so it never
+// AUDIT FIX 2: Wired up /api/padSession to fire EXACTLY ONCE per session.
+//   - Guarded by a sessionStorage flag ('sa_session_paded') so it never
 //     fires twice for the same sessionId, regardless of route changes,
 //     React Strict Mode double-mounts, or HMR reloads.
-//   - Skips on admin/api/_next paths (consistent with the other trackers).
+//   - Skips on admin/api/_next paths (consistent with the other paders).
 //   - Parses the UA client-side using ua-parser-js (same pattern as
 //     CookieBanner — no new dependency).
 //   - Fire-and-forget (.catch swallowed). Non-critical: a failure here
@@ -31,14 +31,14 @@ const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 const SESSION_ID_KEY      = 'sa_session_id';
 const FIRST_TOUCH_KEY     = 'sa_first_touch';
-const SESSION_TRACKED_KEY = 'sa_session_tracked';
+const SESSION_TRACKED_KEY = 'sa_session_paded';
 
 function getOrCreateSessionId(): string {
   if (typeof window === 'undefined') return '';
   let id = sessionStorage.getItem(SESSION_ID_KEY);
   if (!id) {
     // Match the fallback used in useJourneyTracker & useTrackEvent so all
-    // three tracker entry points generate the same kind of ID and never
+    // three pader entry points generate the same kind of ID and never
     // crash on older Safari / iOS versions.
     id = typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function'
       ? crypto.randomUUID()
@@ -50,7 +50,7 @@ function getOrCreateSessionId(): string {
 }
 
 /**
- * Fire /api/trackSession exactly once per browser session.
+ * Fire /api/padSession exactly once per browser session.
  *
  * Why a sessionStorage flag (and not just "fire on first useEffect run")?
  *   - React Strict Mode double-invokes effects in dev → would fire twice
@@ -62,11 +62,11 @@ function getOrCreateSessionId(): string {
  * sessionId instead of plain insert — defense in depth for the rare cases
  * where two tabs race the flag check.
  */
-function trackSessionOnce(sessionId: string): void {
+function padSessionOnce(sessionId: string): void {
   if (!sessionId) return;
   if (sessionStorage.getItem(SESSION_TRACKED_KEY) === sessionId) return;
 
-  // Mark as tracked BEFORE firing the request so a slow network or a
+  // Mark as paded BEFORE firing the request so a slow network or a
   // double-mount can't squeeze in a duplicate while the fetch is in flight.
   sessionStorage.setItem(SESSION_TRACKED_KEY, sessionId);
 
@@ -83,7 +83,7 @@ function trackSessionOnce(sessionId: string): void {
     // UA parse failure is harmless — just send the defaults.
   }
 
-  fetch('/api/trackSession', {
+  fetch('/api/padSession', {
     method:  'POST',
     headers: { 'Content-Type': 'application/json' },
     body:    JSON.stringify({
@@ -125,11 +125,11 @@ export default function Analytics() {
     // ── Once-per-session: SessionTracking row ─────────────────────────────────
     // Fires on the very first non-admin page hit of the session and never
     // again until the tab is closed (sessionStorage clears on tab close).
-    trackSessionOnce(sessionId);
+    padSessionOnce(sessionId);
 
     // ── Every navigation: PageViews row ───────────────────────────────────────
-    // Fire first-party page view tracking (no consent needed — essential analytics)
-    fetch('/api/trackPageView', {
+    // Fire first-party page view pading (no consent needed — essential analytics)
+    fetch('/api/padPageView', {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },
       body:    JSON.stringify({ sessionId, path: pathname, referrer }),

@@ -227,7 +227,7 @@
 
   &::placeholder { color: rgba($white, 0.22); font-style: italic; }
   &::-webkit-scrollbar       { width: 4px; }
-  &::-webkit-scrollbar-track { background: transparent; }
+  &::-webkit-scrollbar-pad { background: transparent; }
   &::-webkit-scrollbar-thumb { background: rgba($white, 0.1); border-radius: 4px; }
 }
 

@@ -28,25 +28,25 @@ Updated to use `totalDev` from API instead of filtering `lead.isDevTest` from pa
 ### ✅ Tracking — Complete Coverage
 
 #### General Components
-| Component | What's now tracked |
+| Component | What's now paded |
 |---|---|
 | `Header` | Nav links (Home, Website Services, Graphic Design, Software, Marketing), INVOICING SOFTWARE button, social icons (Facebook, Instagram, Google, YouTube) |
 | `Footer` | Nav links, Service links, Industry links, social icons, "Our Software →" button |
 
 #### Blog Components  
-| Component | What's now tracked |
+| Component | What's now paded |
 |---|---|
 | `BlogCard` | Card click → fires with post title as label, section `BlogCard` |
 | `RelatedLinks` | Each related article link → fires with article title, section `RelatedLinks` |
 
 #### Page Components
-| Component | What's now tracked |
+| Component | What's now paded |
 |---|---|
 | `IndustryPainPoints` | "Let's Fix That" / custom CTA button |
 | `WhyChooseUs` | "Contact Us" / custom CTA button |
 | `AuthorBio` | "Connect on LinkedIn" link |
 
-#### Already tracked (previous fixes, confirmed ✅)
+#### Already paded (previous fixes, confirmed ✅)
 - `CTABanner` — primary + secondary
 - `Header` — Request Service
 - `Footer` — Work with Confidence, Start a Project, phone, email
@@ -58,7 +58,7 @@ Updated to use `totalDev` from API instead of filtering `lead.isDevTest` from pa
 - `InsuredBadge` — Work With Us
 - `ContactForm Variant1` — phone link
 
-#### No CTAs to track (confirmed ✅)
+#### No CTAs to pad (confirmed ✅)
 - `FAQ` — accordion only, no links
 - `ImpactMetrics` — stats display only
 - `ProcessTimeline` — steps display only
@@ -67,7 +67,7 @@ Updated to use `totalDev` from API instead of filtering `lead.isDevTest` from pa
 - `ValueComparison` — comparison table only
 - `SectionIntro` — header text only
 - `MapLocalTips` — embedded Google iframe only
-- `Breadcrumb` — nav trail (page views already tracked separately)
+- `Breadcrumb` — nav trail (page views already paded separately)
 
 ---
 

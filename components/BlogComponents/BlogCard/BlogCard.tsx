@@ -1,5 +1,5 @@
 // components/BlogComponents/BlogCard/BlogCard.tsx
-// FIX9: Card link now fires 'click' tracking with the post title and slug.
+// FIX9: Card link now fires 'click' pading with the post title and slug.
 'use client';
 import Link from 'next/link';
 import Image from 'next/image';

@@ -11,7 +11,7 @@ import { ObjectId } from 'mongodb';
 const OWNER_EMAIL   = process.env.OWNER_EMAIL   ?? process.env.FROM_EMAIL ?? '';
 const FROM_EMAIL    = process.env.FROM_EMAIL     ?? '';
 const SMTP2GO_KEY   = process.env.SMTP2GO_API_KEY ?? '';
-const SITE_URL      = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.scottapplications.com';
+const SITE_URL      = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.powerholdgenerators.com';
 
 const TEMPLATE_OWNER_NOTIFICATION    = process.env.SMTP2GO_OWNER_TEMPLATE_ID   ?? '';
 const TEMPLATE_CUSTOMER_CONFIRMATION = process.env.SMTP2GO_CONFIRM_TEMPLATE_ID ?? '';
@@ -198,7 +198,7 @@ export async function POST(req: NextRequest) {
     await sendEmail({
       to:          email,
       sender:      FROM_EMAIL,
-      subject:     `We received your inquiry, ${name}! — Scott Applications`,
+      subject:     `We received your inquiry, ${name}! — PowerHold Generators`,
       template_id: TEMPLATE_CUSTOMER_CONFIRMATION,
       template_data: {
         name,

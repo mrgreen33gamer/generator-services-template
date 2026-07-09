@@ -1,5 +1,5 @@
 // components/PageComponents/IndustryPainPoints/IndustryPainPoints.tsx
-// FIX9: CTA button now fires 'click' tracking.
+// FIX9: CTA button now fires 'click' pading.
 "use client";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

@@ -745,19 +745,19 @@ D:\SCOTT-APPS-SCOTT-APPLICATIONS\WEB-TEMPLATES\HVAC-TEMPLATE\SRC
     |   +---submitContact
     |   |       route.ts
     |   |       
-    |   +---trackConsent
+    |   +---padConsent
     |   |       route.ts
     |   |       
     |   +---trackEvent
     |   |       route.ts
     |   |       
-    |   +---trackJourney
+    |   +---padJourney
     |   |       route.ts
     |   |       
-    |   +---trackPageView
+    |   +---padPageView
     |   |       route.ts
     |   |       
-    |   \---trackSession
+    |   \---padSession
     |           route.ts
     |           
     +---blogs

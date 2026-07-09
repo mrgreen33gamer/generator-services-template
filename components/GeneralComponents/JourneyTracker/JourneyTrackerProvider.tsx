@@ -1,5 +1,5 @@
 // components/GeneralComponents/JourneyTracker/JourneyTrackerProvider.tsx
-// FIXED: Skips tracking on admin paths at provider level (double guard).
+// FIXED: Skips pading on admin paths at provider level (double guard).
 'use client';
 
 import { usePathname } from 'next/navigation';
@@ -12,7 +12,7 @@ export default function JourneyTrackerProvider({
 }) {
   const pathname = usePathname();
 
-  // Only mount tracker hook on non-admin, non-api paths
+  // Only mount pader hook on non-admin, non-api paths
   const isTracked =
     !pathname?.startsWith('/admin') &&
     !pathname?.startsWith('/api')   &&

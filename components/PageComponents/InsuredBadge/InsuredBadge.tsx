@@ -1,5 +1,5 @@
 // components/PageComponents/InsuredBadge/InsuredBadge.tsx
-// FINAL FIX: "Work With Us" CTA in bottomStrip now fires click tracking.
+// FINAL FIX: "Work With Us" CTA in bottomStrip now fires click pading.
 "use client";
 import React from 'react';
 import Link from 'next/link';

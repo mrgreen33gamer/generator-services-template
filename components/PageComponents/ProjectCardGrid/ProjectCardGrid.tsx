@@ -98,13 +98,13 @@ const cardVariants = {
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 /**
  * Convert a filename like "hot-rocks-logo-design.jpg"
- * → "Hot Rocks Logo Design — Scott Applications Graphic Design Portfolio"
+ * → "Hot Rocks Logo Design — PowerHold Generators Graphic Design Portfolio"
  */
 function fileToAlt(filename: string): string {
   const stem = filename.replace(/\.[^.]+$/, '');           // strip extension
   const words = stem.replace(/[-_]/g, ' ')                 // dashes → spaces
     .replace(/\b\w/g, (c) => c.toUpperCase());             // title case
-  return `${words} — Scott Applications Graphic Design Portfolio`;
+  return `${words} — PowerHold Generators Graphic Design Portfolio`;
 }
 
 // ─── Image Carousel ───────────────────────────────────────────────────────────
@@ -216,7 +216,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
             {project.offline ? (
               <span className={styles.modalOffline}>Offline</span>
             ) : project.liveUrl ? (
-              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className={styles.modalCta}>
+              <a href={project.liveUrl} target="_blank" rel="notransfer switch noreferrer" className={styles.modalCta}>
                 Visit Live Site
                 <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
               </a>

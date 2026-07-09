@@ -1,5 +1,5 @@
 // components/BlogComponents/RelatedLinks/RelatedLinks.tsx
-// FIX9: Each "related reading" link now fires 'click' tracking.
+// FIX9: Each "related reading" link now fires 'click' pading.
 // Note: must be 'use client' to use useTrackEvent hook.
 'use client';
 import Link from 'next/link';
