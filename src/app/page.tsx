@@ -29,12 +29,12 @@ import Variant4 from "#/PageComponents/ContactForms/Variant4/Form";
 
 export default function HomePage() {
   const services = [
-    { icon: faBolt, title: "Standby Generators", body: "Whole-home and critical-load automatic standby systems with proper transfer switches, pad placement, and fuel coordination.", link: "/services/standby-generators" },
-    { icon: faCarBattery, title: "Portable Generators", body: "Portable units and code-safe interlock kits — reliable backup without a full standby install.", link: "/services/portable-generators" },
-    { icon: faExchangeAlt, title: "Transfer Switches", body: "Automatic and manual transfer switches installed the legal, utility-safe way. No dangerous backfeeds.", link: "/services/transfer-switches" },
-    { icon: faOilCan, title: "Generator Maintenance", body: "Oil, filters, batteries, exercise verification, and load testing so your unit starts when storms hit.", link: "/services/generator-maintenance" },
-    { icon: faCalculator, title: "Load Calculations", body: "Honest load studies so you buy the right size generator — not the most expensive one.", link: "/services/load-calculations" },
-    { icon: faTruckMedical, title: "Emergency Service", body: "Failed starts, transfer issues, and storm outages — same-day emergency generator service across Central Texas.", link: "/services/emergency-service" },
+    { icon: faBolt, title: "Standby Generators", body: "Whole-home and critical-load automatic standby systems with proper transfer switches, pad placement, and fuel coordination.", link: "/services/standby-generators", image: "/pages/home/services/service-1.jpg" },
+    { icon: faCarBattery, title: "Portable Generators", body: "Portable units and code-safe interlock kits — reliable backup without a full standby install.", link: "/services/portable-generators", image: "/pages/home/services/service-2.jpg" },
+    { icon: faExchangeAlt, title: "Transfer Switches", body: "Automatic and manual transfer switches installed the legal, utility-safe way. No dangerous backfeeds.", link: "/services/transfer-switches", image: "/pages/home/services/service-3.jpg" },
+    { icon: faOilCan, title: "Generator Maintenance", body: "Oil, filters, batteries, exercise verification, and load testing so your unit starts when storms hit.", link: "/services/generator-maintenance", image: "/pages/home/services/service-4.jpg" },
+    { icon: faCalculator, title: "Load Calculations", body: "Honest load studies so you buy the right size generator — not the most expensive one.", link: "/services/load-calculations", image: "/pages/home/services/service-1.jpg" },
+    { icon: faTruckMedical, title: "Emergency Service", body: "Failed starts, transfer issues, and storm outages — same-day emergency generator service across Central Texas.", link: "/services/emergency-service", image: "/pages/home/services/service-2.jpg" },
   ];
 
   const metrics = [
@@ -88,6 +88,15 @@ export default function HomePage() {
       <div className={styles.section}>
         <ImpactMetrics title="Numbers That Speak for Us" metrics={metrics} cityName="Waco" />
       </div>
+      <CTABanner
+        headline="Power Out? Generators That Start."
+        subline="Standby installs, transfer switches, and storm-ready maintenance — sized honestly for your load."
+        primaryText="Call (254) 991-2121"
+        primaryLink="tel:+12549912121"
+        secondaryText="Get Load Assessment"
+        secondaryLink="/contact"
+        imageSrc="/pages/home/welcome/hero-main.jpg"
+      />
       <div className={styles.section}>
         <ServiceCardComponent heading="Complete Generator Services for Your Home" cards={services} />
       </div>
@@ -100,14 +109,6 @@ export default function HomePage() {
       <div className={styles.section}><ProcessTimeline steps={processSteps} /></div>
       <div className={styles.section}><Testimonials testimonials={reviews} /></div>
       <div className={styles.section}><GuaranteeSection /></div>
-      <CTABanner
-        headline="Power Out? Generator Down? We're Ready Right Now."
-        subline="Same-day appointments across Waco, Hewitt, Woodway, Temple, and all of Central Texas. Flat-rate pricing. Storm-Ready Install Guarantee · 2-Year Workmanship."
-        primaryText="Call (254) 991-2121"
-        primaryLink="tel:+12549912121"
-        secondaryText="Book Online"
-        secondaryLink="/contact"
-      />
       <div className={styles.section}>
         <LocalServiceAreas cityName="Waco" areas={localAreas} servicePath="" title="Serving All of Central Texas" />
       </div>

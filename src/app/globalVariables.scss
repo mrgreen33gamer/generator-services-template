@@ -1,44 +1,30 @@
-// src/app/globalVariables.scss
-// ─────────────────────────────────────────────────────────────────────────────
-// PowerHold Generators — Brand Tokens
-//
-// THREE DISTINCT FONTS:
-//   $titleFont  → Barlow Condensed  — bold condensed display (hero h1, section titles)
-//   $headerFont → Outfit            — clean geometric sans   (nav, card titles, labels, CTAs)
-//   $textFont   → Inter             — refined humanist sans  (body copy, form text, paragraphs)
-//
-// Usage guide:
-//   h1, .hero headline              → $titleFont  (uppercase, tight tracking)
-//   h2, h3, nav links, btn text     → $headerFont (medium weight, normal case)
-//   p, label, input, small text     → $textFont   (regular/medium weight)
-// ─────────────────────────────────────────────────────────────────────────────
+// Auto uniqueness tokens — backup power tech
+$titleFont:  var(--font-title),  'Share Tech', sans-serif;
+$headerFont: var(--font-header), 'Space Grotesk', sans-serif;
+$textFont:   var(--font-body),   'IBM Plex Sans', sans-serif;
 
-$titleFont:  var(--font-barlow-condensed), 'Barlow Condensed', sans-serif;
-$headerFont: var(--font-outfit),           'Outfit',           sans-serif;
-$textFont:   var(--font-inter),            'Inter',            sans-serif;
-
-// ── Core Palette ─────────────────────────────────────────────────────────────
 $black:      #000000;
-$obsidian:   #1c1917;
-$blackflat:  #292524;
+$obsidian:   #052e16;
+$blackflat:  #052e16;
 $white:      #FFFFFF;
-$offwhite:   #fafaf9;
+$offwhite:   #f0fdf4;
 
-// Greys (stone-tinted)
-$darkgrey:   #a8a29e;
-$grey:       #78716c;
-$lightgrey:  #e7e5e4;
+$darkgrey:   #94a3b8;
+$grey:       #64748b;
+$lightgrey:  #e2e8f0;
 
-// Brand Accent — electric yellow
-$orange:     #facc15;
-$lightorange:#fde047;
-$darkorange: #ca8a04;
+$orange:     #22c55e;
+$lightorange:#4ade80;
+$darkorange: #15803d;
 
-// Legacy aliases
 $green:      $orange;
 $lightgreen: $lightorange;
 $darkgreen:  $darkorange;
-$blue:       #1e6fa8;
+$blue:       #22c55e;
 
-// Error
+$radius-sm:  2px;
+$radius-md:  4px;
+$radius-lg:  8px;
+$radius-pill: 2px;
+
 $danger-red: #ef4444;

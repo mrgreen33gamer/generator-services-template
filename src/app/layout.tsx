@@ -1,6 +1,6 @@
 // src/app/layout.tsx — PowerHold Generators
 import type { Metadata, Viewport } from "next";
-import { Barlow_Condensed, ABeeZee } from "next/font/google";
+import { Share_Tech, Space_Grotesk, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import "./globalVariables.scss";
 import { config } from "@fortawesome/fontawesome-svg-core";
@@ -23,18 +23,25 @@ import reviews from "../../libs/local-db/reviews";
 
 config.autoAddCss = false;
 
-const barlowCondensed = Barlow_Condensed({
-  weight: ["400", "500", "600", "700", "800"],
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-barlow-condensed",
-});
-
-const aBeeZee = ABeeZee({
+const fontTitle = Share_Tech({
   weight: ["400"],
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-abeezee",
+  variable: "--font-title",
+});
+
+const fontHeader = Space_Grotesk({
+  weight: ["400","500","600","700"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-header",
+});
+
+const fontBody = IBM_Plex_Sans({
+  weight: ["400","500","600","700"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-body",
 });
 
 const isProduction = process.env.NODE_ENV === "production";
@@ -45,8 +52,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#1c1917" },
-    { media: "(prefers-color-scheme: dark)",  color: "#1c1917" },
+    { media: "(prefers-color-scheme: light)", color: "#052e16" },
+    { media: "(prefers-color-scheme: dark)",  color: "#052e16" },
   ],
   colorScheme: "dark",
 };
@@ -145,18 +152,18 @@ const localBusinessSchema = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${barlowCondensed.variable} ${aBeeZee.variable}`}>
+    <html lang="en" className={`${fontTitle.variable} ${fontHeader.variable} ${fontBody.variable}`}>
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       </head>
       <body>
         <ConditionalShell><Header /></ConditionalShell>
-        <NextTopLoader color="#facc15" showSpinner={false} />
+        <NextTopLoader color="#22c55e" showSpinner={false} />
         <Suspense fallback={null}><Analytics /></Suspense>
         <MapProvider>
           <Suspense fallback={
-            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%", height: "100vh", background: "#1c1917" }}>
-              <PulseLoader size={50} color="#facc15" />
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%", height: "100vh", background: "#052e16" }}>
+              <PulseLoader size={50} color="#22c55e" />
             </div>
           }>
             <JourneyTrackerProvider>{children}</JourneyTrackerProvider>

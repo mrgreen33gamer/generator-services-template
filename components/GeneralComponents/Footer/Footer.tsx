@@ -176,7 +176,7 @@ export default function Footer() {
       <div className={styles.bottomBar}>
         <div className={styles.bottomInner}>
           <p className={styles.copyright}>
-            &copy; {new Date().getFullYear()} PowerHold Generators. All Rights Reserved. | TECL-Aligned � Bonded & Insured
+            &copy; {new Date().getFullYear()} PowerHold Generators. All Rights Reserved. | TECL-Aligned · Bonded & Insured
           </p>
           <a href="tel:+12549912121" className={styles.emergencyBtn}
             onClick={() => trackEvent({ eventType: 'phone_click', elementLabel: '24/7 Emergency', section: 'Footer-Bottom' })}>
