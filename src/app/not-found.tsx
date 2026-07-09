@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTriangleExclamation, faHouse, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
 import { motion } from "framer-motion";
-import Header from "#/GeneralComponents/Header/Header";
 import styles from './not-found.module.scss';
 
 const NotFoundPage: React.FC = () => {
@@ -60,7 +59,7 @@ const NotFoundPage: React.FC = () => {
             transition={{ delay: 0.6, duration: 0.5 }}
           >
             Sorry, the page you&apos;re looking for doesn&apos;t exist.<br />
-            Don&apos;t worry — let&apos;s get you back on track!
+            Don&apos;t worry — let&apos;s get you back on pad!
           </motion.p>
 
           {/* Modern pill buttons with icons */}
@@ -79,9 +78,9 @@ const NotFoundPage: React.FC = () => {
               Contact Us
             </Link>
             <Link 
-              href="https://www.facebook.com/scottapplications" 
+              href="https://www.facebook.com/powerholdgenerators" 
               target="_blank" 
-              rel="noopener noreferrer"
+              rel="notransfer switch noreferrer"
               className={styles.ctaButton}
             >
               <FontAwesomeIcon icon={faFacebookF} className={styles.buttonIcon} />

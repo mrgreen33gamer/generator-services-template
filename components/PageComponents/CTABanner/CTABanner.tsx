@@ -15,10 +15,10 @@ interface CTABannerProps {
 }
 
 export default function CTABanner({
-  headline      = "Ready to Stay Comfortable Year-Round?",
+  headline      = "Need Backup Power? We're Ready Right Now.",
   subline   = "Same-day appointments available. Flat-rate pricing — no hidden fees. Call now or grab a free estimate online.",
-  primaryText  = "Call (254) 900-1234",
-  primaryLink   = "tel:+12549001234",
+  primaryText  = "Call (254) 991-2121",
+  primaryLink   = "tel:+12549912121",
   secondaryText = "Free Estimate",
   secondaryLink  = "/contact",
   spot = "CTABanner",
@@ -27,10 +27,8 @@ export default function CTABanner({
 
   return (
     <section className={styles.banner} aria-label="Call to action">
-      {/* Decorative grid lines */}
       <div className={styles.grid} aria-hidden="true" />
 
-      {/* Rotating snowflake bg */}
       <motion.div
         className={styles.bgFlake}
         animate={{ rotate: 360 }}
@@ -57,7 +55,7 @@ export default function CTABanner({
         >
           <span className={styles.eyebrow}>
             <span className={styles.eyebrowDot} />
-            Central Texas HVAC Experts Since 2010
+            Central Texas Generator Experts Since 2011
           </span>
           <h2 className={styles.heading}>{headline}</h2>
           <p className={styles.sub}>{subline}</p>
@@ -99,7 +97,7 @@ export default function CTABanner({
             </span>
             <span className={styles.badge}>
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-              1-Yr Warranty
+              Storm-Ready Install Guarantee
             </span>
             <span className={styles.badge}>
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg>

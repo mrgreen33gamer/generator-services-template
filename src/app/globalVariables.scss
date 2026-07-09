@@ -1,6 +1,6 @@
 // src/app/globalVariables.scss
 // ─────────────────────────────────────────────────────────────────────────────
-// Arctic Air HVAC — Brand Tokens
+// PowerHold Generators — Brand Tokens
 //
 // THREE DISTINCT FONTS:
 //   $titleFont  → Barlow Condensed  — bold condensed display (hero h1, section titles)
@@ -19,20 +19,20 @@ $textFont:   var(--font-inter),            'Inter',            sans-serif;
 
 // ── Core Palette ─────────────────────────────────────────────────────────────
 $black:      #000000;
-$obsidian:   #0d1b2a;
-$blackflat:  #1a2a3a;
+$obsidian:   #1c1917;
+$blackflat:  #292524;
 $white:      #FFFFFF;
-$offwhite:   #f8fafc;
+$offwhite:   #fafaf9;
 
-// Greys (navy-tinted)
-$darkgrey:   #7a9bb5;
-$grey:       #4a6a85;
-$lightgrey:  #c8d8e8;
+// Greys (stone-tinted)
+$darkgrey:   #a8a29e;
+$grey:       #78716c;
+$lightgrey:  #e7e5e4;
 
-// Brand Accent
-$orange:     #f97316;
-$lightorange:#fb923c;
-$darkorange: #c2410c;
+// Brand Accent — electric yellow
+$orange:     #facc15;
+$lightorange:#fde047;
+$darkorange: #ca8a04;
 
 // Legacy aliases
 $green:      $orange;

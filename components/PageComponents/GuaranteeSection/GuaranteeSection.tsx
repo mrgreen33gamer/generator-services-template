@@ -37,9 +37,9 @@ const DEFAULT_GUARANTEES: Guarantee[] = [
   },
   {
     icon: faShieldHalved,
-    title: "1-Year Parts & Labor Warranty",
+    title: "Storm-Ready Install Guarantee · 2-Year Workmanship",
     description:
-      "Every repair we perform is covered for a full year — parts and labor. If it fails within 12 months, we fix it at no charge.",
+      "Every installation we perform is covered for two full years of workmanship. If our work fails within 24 months, we make it right at no charge.",
   },
   {
     icon: faRotateLeft,
@@ -49,15 +49,15 @@ const DEFAULT_GUARANTEES: Guarantee[] = [
   },
   {
     icon: faCertificate,
-    title: "NATE-Certified Technicians",
+    title: "TECL-Aligned Installers",
     description:
-      "Every tech who enters your home is NATE-certified and TDLR-licensed. No apprentices working alone — ever.",
+      "Every generator technician who enters your home is TECL-aligned. No unlicensed subs working alone — ever.",
   },
   {
     icon: faCalendarCheck,
     title: "No Contracts. No Lock-In.",
     description:
-      "Our maintenance plans are month-to-month. We earn your business with every visit — not by holding you hostage with a contract.",
+      "We earn your business with every visit — not by holding you hostage with a multi-year service contract.",
   },
   {
     icon: faStar,
@@ -92,7 +92,7 @@ const GuaranteeSection: React.FC<GuaranteeSectionProps> = ({
             ))}
           </h2>
           <p className={styles.body}>
-            Every HVAC company in Central Texas makes promises. We back ours in writing — with flat-rate pricing, certified technicians, and a 1-year warranty on every repair we touch.
+            Every generator company in Central Texas makes promises. We back ours in writing — with flat-rate pricing, TECL-aligned generator technicians, and a Storm-Ready Install Guarantee · 2-Year Workmanship on every install we touch.
           </p>
           <Link
             href={ctaLink}
@@ -117,7 +117,7 @@ const GuaranteeSection: React.FC<GuaranteeSectionProps> = ({
                 </svg>
               ))}
             </div>
-            <span className={styles.ratingText}>4.9 · 300+ verified Google reviews</span>
+            <span className={styles.ratingText}>4.9 · 800+ verified Google reviews</span>
           </div>
         </div>
 

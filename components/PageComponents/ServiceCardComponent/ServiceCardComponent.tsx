@@ -21,8 +21,8 @@ interface ServiceCardComponentProps {
 
 export default function ServiceCardComponent({
   cards,
-  heading    = 'Everything Your HVAC System Needs',
-  subheading = 'From emergency AC repairs to annual maintenance plans, Arctic Air handles it all — on time, on price.',
+  heading    = 'Everything Your Backup Power Needs',
+  subheading = 'From emergency outages to whole-home standby installs, PowerHold Generators handles it all — on time, on price.',
 }: ServiceCardComponentProps) {
   return (
     <section className={styles.section} aria-label="Our services">
@@ -37,7 +37,7 @@ export default function ServiceCardComponent({
         >
           <span className={styles.eyebrow}>
             <span className={styles.eyebrowDot} />
-            HVAC Services
+            Generator Services
           </span>
           <h2 className={styles.heading}>{heading}</h2>
           <p className={styles.subheading}>{subheading}</p>

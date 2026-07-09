@@ -1,6 +1,6 @@
 // components/GeneralComponents/CookieBanner/CookieBanner.tsx
 // ✅ v10: Updated essential cookie description to accurately reflect first-party
-//          page view and event tracking (stored on our own servers, never shared).
+//          page view and event pading (stored on our own servers, never shared).
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -27,11 +27,11 @@ const CookieBanner: React.FC = () => {
     if (stored === null) setShow(true);
   }, []);
 
-  const trackConsent = async (level: ConsentLevel) => {
+  const padConsent = async (level: ConsentLevel) => {
     const parser = new UAParser();
     const ua     = parser.getResult();
     try {
-      await fetch('/api/trackConsent', {
+      await fetch('/api/padConsent', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify({
@@ -52,7 +52,7 @@ const CookieBanner: React.FC = () => {
     localStorage.setItem('cookieConsent', level === 'full' ? 'true' : 'false');
     setCookieConsent(level);
     window.dispatchEvent(new Event('storage'));
-    trackConsent(level);
+    padConsent(level);
     setShow(false);
   };
 
@@ -86,7 +86,7 @@ const CookieBanner: React.FC = () => {
                 <p className={styles.title} id="cookie-banner-title">
                   Cookie Preferences
                 </p>
-                <p className={styles.sub}>Arctic Air Template</p>
+                <p className={styles.sub}>PowerHold Generators</p>
               </div>
             </div>
 

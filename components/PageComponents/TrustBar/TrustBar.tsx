@@ -15,7 +15,7 @@ const BADGES = [
       </svg>
     ),
     title: 'Licensed & Insured',
-    sub: 'TDLR Certified · $1M Coverage',
+    sub: 'Bonded · Full Coverage',
   },
   {
     icon: (
@@ -43,8 +43,8 @@ const BADGES = [
         <polyline points="20 6 9 17 4 12"/>
       </svg>
     ),
-    title: 'NATE Certified',
-    sub: 'Industry-trained techs',
+    title: 'TECL-Aligned',
+    sub: 'Bonded & Insured',
   },
   {
     icon: (
@@ -52,8 +52,8 @@ const BADGES = [
         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
       </svg>
     ),
-    title: '1-Year Warranty',
-    sub: 'Parts & labor guaranteed',
+    title: 'Storm-Ready Install Guarantee',
+    sub: '+ 2-Year Workmanship',
   },
   {
     icon: (
@@ -62,7 +62,7 @@ const BADGES = [
       </svg>
     ),
     title: '4.9★ Google Rating',
-    sub: '300+ verified reviews',
+    sub: '520+ verified reviews',
   },
 ];
 

@@ -21,43 +21,43 @@ interface TechStackProps {
 
 const DEFAULT_GROUPS: BrandGroup[] = [
   {
-    label: 'Equipment Brands We Service',
+    label: 'Brands & Equipment We Install',
     items: [
-      { name: 'Carrier',     type: 'brand', icon: '❄️' },
-      { name: 'Trane',       type: 'brand', icon: '❄️' },
-      { name: 'Lennox',      type: 'brand', icon: '❄️' },
-      { name: 'Rheem',       type: 'brand', icon: '❄️' },
-      { name: 'Goodman',     type: 'brand', icon: '❄️' },
-      { name: 'York',        type: 'brand', icon: '❄️' },
-      { name: 'Daikin',      type: 'brand', icon: '❄️' },
-      { name: 'American Standard', type: 'brand', icon: '❄️' },
+      { name: 'Square D',       type: 'brand', icon: '⚡' },
+      { name: 'Siemens',        type: 'brand', icon: '⚡' },
+      { name: 'Eaton',          type: 'brand', icon: '⚡' },
+      { name: 'GE',             type: 'brand', icon: '⚡' },
+      { name: 'Leviton',        type: 'brand', icon: '⚡' },
+      { name: 'Lutron',         type: 'brand', icon: '⚡' },
+      { name: 'Generac',        type: 'brand', icon: '⚡' },
+      { name: 'Tesla / ChargePoint', type: 'brand', icon: '⚡' },
     ],
   },
   {
     label: 'Certifications & Licenses',
     items: [
-      { name: 'NATE Certified',      type: 'cert', icon: '✓' },
-      { name: 'TDLR Licensed',       type: 'cert', icon: '✓' },
-      { name: 'EPA 608 Certified',   type: 'cert', icon: '✓' },
-      { name: 'Fully Insured',       type: 'cert', icon: '✓' },
+      { name: 'TECL-Aligned',        type: 'cert', icon: '✓' },
+      { name: 'Lead Generator Technician',   type: 'cert', icon: '✓' },
+      { name: 'Bonded & Insured',     type: 'cert', icon: '✓' },
+      { name: '2-Year Warranty',      type: 'cert', icon: '✓' },
     ],
   },
   {
-    label: 'System Types',
+    label: 'Service Types',
     items: [
-      { name: 'Central AC',          type: 'tool', icon: '🌡️' },
-      { name: 'Heat Pumps',          type: 'tool', icon: '🌡️' },
-      { name: 'Mini-Splits',         type: 'tool', icon: '🌡️' },
-      { name: 'Gas Furnaces',        type: 'tool', icon: '🌡️' },
-      { name: 'Duct Systems',        type: 'tool', icon: '🌡️' },
-      { name: 'Air Handlers',        type: 'tool', icon: '🌡️' },
+      { name: 'Panel Upgrades',       type: 'tool', icon: '🔌' },
+      { name: 'Wiring & Rewiring',    type: 'tool', icon: '🔌' },
+      { name: 'Lighting Design',      type: 'tool', icon: '🔌' },
+      { name: 'EV Chargers',          type: 'tool', icon: '🔌' },
+      { name: 'Generators',           type: 'tool', icon: '🔌' },
+      { name: 'Troubleshooting',      type: 'tool', icon: '🔌' },
     ],
   },
 ];
 
 const TechStack: React.FC<TechStackProps> = ({
-  title    = 'All Brands, All Systems',
-  subtitle = 'We service every major brand and system type — no brand-specific limitations, no excuses.',
+  title    = 'Licensed Work, Quality Equipment',
+  subtitle = 'We install and service major electrical brands — TECL-aligned crews, no shortcuts on code or materials.',
   groups   = DEFAULT_GROUPS,
 }) => {
   return (
