@@ -1,167 +1,64 @@
 "use client";
 import Breadcrumb from "#/PageComponents/Breadcrumb/Breadcrumb";
-
 import styles from "./page.module.scss";
-
-import SectionIntro       from "#/PageComponents/SectionIntro/SectionIntro";
-import TrustBar           from "#/PageComponents/TrustBar/TrustBar";
+import SectionIntro from "#/PageComponents/SectionIntro/SectionIntro";
+import TrustBar from "#/PageComponents/TrustBar/TrustBar";
 import SectionIndustriesServed from "#/PageComponents/SectionIndustriesServed/SectionIndustriesServed";
-import WhyChooseUs        from "#/PageComponents/WhyChooseUs/WhyChooseUs";
-import ImpactMetrics      from "#/PageComponents/ImpactMetrics/ImpactMetrics";
-import LocalServiceAreas  from "#/PageComponents/LocalServiceAreas/LocalServiceAreas";
-import ValueComparison    from "#/PageComponents/ValueComparison/ValueComparison";
-import FAQ                from "#/PageComponents/FAQ/FAQ";
-import CTABanner          from "#/PageComponents/CTABanner/CTABanner";
-import Variant4           from "#/PageComponents/ContactForms/Variant4/Form";
-
-import {
-  faTrophy, faChartLine, faClock,
-  faHandshake, faShieldHalved, faLightbulb,
-} from "@fortawesome/free-solid-svg-icons";
+import WhyChooseUs from "#/PageComponents/WhyChooseUs/WhyChooseUs";
+import ImpactMetrics from "#/PageComponents/ImpactMetrics/ImpactMetrics";
+import LocalServiceAreas from "#/PageComponents/LocalServiceAreas/LocalServiceAreas";
+import ValueComparison from "#/PageComponents/ValueComparison/ValueComparison";
+import FAQ from "#/PageComponents/FAQ/FAQ";
+import CTABanner from "#/PageComponents/CTABanner/CTABanner";
+import Variant4 from "#/PageComponents/ContactForms/Variant4/Form";
+import { faTrophy, faChartLine, faClock, faHandshake, faShieldHalved, faFileInvoiceDollar } from "@fortawesome/free-solid-svg-icons";
 
 export default function IndustriesPage() {
-
   const whyFeatures = [
-    {
-      icon: faHandshake,
-      title: "We Learn Your Industry Before We Build",
-      description: "Every industry has its own language, sales cycle, and customer expectations. Before we design or code anything, we audit how your industry converts online — and build to that standard.",
-    },
-    {
-      icon: faShieldHalved,
-      title: "Locally Operated, Industry-Savvy",
-      description: "We're based in Waco, TX and have served businesses across automotive, HVAC, construction, finance, roofing, and more across Central Texas for 10+ years. Local knowledge + industry expertise.",
-    },
-    {
-      icon: faLightbulb,
-      title: "Websites, Software & Marketing — All Under One Roof",
-      description: "Whether your industry needs online booking, inventory tools, review management, or local ad campaigns — we handle all of it. No juggling three vendors for one goal.",
-    },
+    { icon: faHandshake, title: "We Learn Your Operation First", description: "A homebuilder, a clinic manager, and a ranch operator all work differently. We learn access rules and downtime constraints before we quote." },
+    { icon: faShieldHalved, title: "TECL-Aligned, Bonded & Insured", description: "Documentation multi-site, commercial, and builder projects require." },
+    { icon: faFileInvoiceDollar, title: "Install, Service & Maintenance — One Vendor", description: "Standby installs, transfer switches, and emergency support under one roof." },
   ];
-
   const metrics = [
-    { icon: faTrophy,    value: 10,  label: "Industries actively served across Texas",        suffix: "+", duration: 2 },
-    { icon: faChartLine, value: 320, label: "Average lead increase across industry clients",   suffix: "%", duration: 3 },
-    { icon: faClock,     value: 13,  label: "Years serving Texas businesses",                  suffix: "+", duration: 2 },
+    { icon: faTrophy, value: 3, label: "B2B industries actively served across Central Texas", suffix: "", duration: 2 },
+    { icon: faChartLine, value: 200, label: "Commercial and multi-site generator projects completed", suffix: "+", duration: 3 },
+    { icon: faClock, value: 15, label: "Years serving Central Texas organizations", suffix: "+", duration: 2 },
   ];
-
   const localAreas = [
-    { town: "Waco",         benefit: "Our home base — serving all industries across McLennan County.",               highlight: "Headquarters" },
-    { town: "Hewitt",       benefit: "Family and trade businesses across Hewitt's growing community.",               highlight: "" },
-    { town: "Woodway",      benefit: "Professional-services and high-end client businesses.",                        highlight: "" },
-    { town: "Temple",       benefit: "A booming Bell County market with strong demand across industries.",           highlight: "" },
-    { town: "Killeen",      benefit: "Military-adjacent businesses and trades near Fort Cavazos.",                   highlight: "" },
-    { town: "China Spring", benefit: "Agricultural, rural, and contractor businesses in Bosque and McLennan County.", highlight: "" },
+    { town: "Waco", benefit: "Our home base for builders, clinics, and ag clients.", badge: "Headquarters" },
+    { town: "Temple", benefit: "Medical and commercial coverage in Bell County.", badge: "" },
+    { town: "Killeen", benefit: "Clinics, multi-site, and light industrial.", badge: "" },
+    { town: "Hewitt", benefit: "Residential portfolios and suburban commercial.", badge: "" },
+    { town: "Woodway", benefit: "Professional offices and premium homes.", badge: "" },
+    { town: "McGregor", benefit: "Industrial corridor and ag properties.", badge: "" },
   ];
-
   const comparisonRows = [
-    { feature: "Industry-specific content & strategy",    us: "✅ Built per vertical",          others: "❌ Generic templates" },
-    { feature: "Local Central Texas market knowledge",    us: "✅ 10+ years in Waco",           others: "❌ Out-of-state agencies" },
-    { feature: "Web + software + marketing combined",     us: "✅ All services in-house",        others: "❌ Siloed vendors" },
-    { feature: "Transparent fixed pricing",               us: "✅ Quote before any work starts", others: "❌ Billable hours + surprises" },
-    { feature: "You own all deliverables",                us: "✅ Code, content, accounts",      others: "❌ Locked-in proprietary systems" },
+    { feature: "Organization-specific scheduling", us: "✅ Built per project type", others: "❌ One-size-fits-all" },
+    { feature: "Central Texas market knowledge", us: "✅ 15+ years in Waco", others: "❌ Out-of-area contractors" },
+    { feature: "TECL-aligned commercial crews", us: "✅ Always", others: "❌ Not always" },
+    { feature: "Transparent, upfront pricing", us: "✅ Quote before work starts", others: "❌ Billable hours + surprises" },
+    { feature: "Storm-Ready Install Guarantee · 2-Year Workmanship", us: "✅ On every install", others: "❌ Limited or none" },
   ];
-
   const faq = [
-    {
-      question: "What industries does Scott Applications work with?",
-      answer: "We currently have dedicated pages and proven experience for automotive, aviation, construction, electrical, finance, HVAC, manufacturing, oil & gas, plumbing, and roofing — plus general business services for professional services, retail, and nonprofits.",
-    },
-    {
-      question: "Do you build industry-specific websites or use the same template for everyone?",
-      answer: "Every project is custom-built for the industry and the business. An HVAC company and a financial firm have completely different customer journeys, trust signals, and conversion paths — we build to those differences specifically.",
-    },
-    {
-      question: "Do you serve industries outside of Central Texas?",
-      answer: "Yes — while we're based in Waco and primarily serve McLennan, Bell, Bosque, and Hill Counties, we've built industry-focused digital systems for Texas businesses from Dallas to Houston. Remote project management is standard for us.",
-    },
-    {
-      question: "Can you handle both the website and the marketing for my industry?",
-      answer: "Yes — we handle web design, custom software, graphic design, and digital marketing under one roof. This means your website, your SEO, and your ads all speak the same language and are optimized together, not in isolation.",
-    },
-    {
-      question: "How do I know which service is right for my industry?",
-      answer: "Start by clicking your industry below or contacting us directly. We'll do a free audit of your current digital presence, identify the biggest gaps, and recommend the services that will move the needle most — no pressure, no overselling.",
-    },
+    { question: "What organizations does PowerHold work with?", answer: "Homebuilders, healthcare clinics, and agriculture & ranches — plus residential generator services." },
+    { question: "Do you build custom proposals?", answer: "Yes — around access rules, downtime windows, and CapEx cycles." },
+    { question: "Do you serve outside Waco?", answer: "Yes — Temple, Killeen, Hewitt, Woodway, McGregor, China Spring, Bellmead, and most of Central Texas within ~60 miles." },
+    { question: "Can you handle multi-site portfolios?", answer: "Yes — phased pricing and a single point of contact." },
+    { question: "How do I choose a program?", answer: "Click your industry below or contact us — we'll recommend the fit." },
   ];
-
   return (
     <main className={styles.pageWrapper}>
-
-      <Breadcrumb crumbs={[
-        { label: "Home", href: "/" },
-        { label: "Industries" },
-      ]} />
-
-      <SectionIntro
-        title="Industries We Serve Across Texas"
-        subtitle="Specialized web design, software, and marketing solutions built for how your industry actually works — not a generic template with your logo swapped in."
-      />
-
-      <TrustBar headline="Trusted by businesses across 10+ industries in Central Texas for 10+ years" />
-
-      {/* ── THE INDUSTRY GRID ── */}
-      <div className={styles.section}>
-        <SectionIndustriesServed
-          title="Browse by Industry"
-          subtitle="Click your industry to see exactly what we build for businesses like yours."
-        />
-      </div>
-
-      <div className={styles.section}>
-        <WhyChooseUs
-          cityName="Central Texas"
-          features={whyFeatures}
-          title="Why Industry-Specific Matters"
-        />
-      </div>
-
-      <div className={styles.section}>
-        <ImpactMetrics metrics={metrics} cityName="Central Texas" />
-      </div>
-
-      <div className={styles.section}>
-        <LocalServiceAreas
-          cityName="Waco"
-          areas={localAreas}
-          title="Industries Served Across Central Texas"
-        />
-      </div>
-
-      <div className={styles.section}>
-        <ValueComparison
-          title="Why Businesses Choose Scott Applications"
-          rows={comparisonRows}
-        />
-      </div>
-
-      <div className={styles.section}>
-        <FAQ
-          cityName="Waco"
-          faq={faq}
-          title="Industry Services — Frequently Asked Questions"
-        />
-      </div>
-
-      <CTABanner
-        headline="Don't See Your Industry? Let's Talk."
-        subline="We work with businesses outside our listed verticals all the time. If you have a repeatable process, a local customer base, or a digital gap — we can build around it. Free consultation, no pressure."
-        primaryText="Tell Us About Your Business"
-        primaryLink="/contact"
-        secondaryText="Call Us Now"
-        secondaryLink="tel:+12549002520"
-      />
-
-      <div className={styles.section}>
-        <Variant4
-          title="Get a Free Industry-Specific Audit"
-          cityName="Waco"
-          slug="industries"
-          spot="industries-hub-page"
-          formVariant={4}
-        />
-      </div>
-
+      <Breadcrumb crumbs={[{ label: "Home", href: "/" }, { label: "Industries" }]} />
+      <SectionIntro title="Industries We Serve Across Central Texas" subtitle="Backup power programs built for how your organization actually works — open dates, critical loads, and uptime windows." />
+      <TrustBar headline="Trusted by builders, clinics, and ranches across Central Texas since 2011" />
+      <div className={styles.section}><SectionIndustriesServed title="Browse by Industry" subtitle="Click your industry to see programs built for organizations like yours." /></div>
+      <div className={styles.section}><WhyChooseUs cityName="Waco" features={whyFeatures} title="Why Organizations Choose PowerHold" /></div>
+      <div className={styles.section}><ImpactMetrics metrics={metrics} cityName="Waco" /></div>
+      <div className={styles.section}><LocalServiceAreas cityName="Waco" areas={localAreas} servicePath="industries" title="Coverage Across Central Texas" /></div>
+      <div className={styles.section}><ValueComparison rows={comparisonRows} /></div>
+      <div className={styles.section}><FAQ cityName="Waco" faq={faq} title="Industry Program FAQs" /></div>
+      <div className={styles.section}><Variant4 title="Request an Industry Program Quote" cityName="Waco" slug="/industries" spot="industries-index-form" formVariant={2} /></div>
+      <CTABanner headline="Need a Generator Partner Who Understands Your Operation?" subline="Flat-rate proposals. TECL-aligned crews. Storm-Ready Install Guarantee · 2-Year Workmanship." primaryText="Call (254) 991-2121" primaryLink="tel:+12549912121" secondaryText="Contact Us" secondaryLink="/contact" />
     </main>
   );
 }

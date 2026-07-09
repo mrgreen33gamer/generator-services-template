@@ -1,8 +1,5 @@
 // libs/local-db/reviews.ts
-// ─────────────────────────────────────────────────────────────────────────────
-// Static testimonials for Arctic Air HVAC — used by Testimonials component,
-// schema markup, and aggregate rating in layout.tsx.
-// ─────────────────────────────────────────────────────────────────────────────
+// Static testimonials for PowerHold Generators
 
 export interface Review {
   name:     string;
@@ -19,64 +16,64 @@ const reviews: Review[] = [
     location: 'Waco, TX',
     rating:   5,
     date:     'March 2026',
-    service:  'AC Replacement',
-    text:     "Our old unit finally gave out in the middle of a Texas summer. Arctic Air had a new system installed within 48 hours. The tech explained everything clearly, pricing was upfront, and the house has never been this comfortable. I can't recommend them enough.",
+    service:  'Standby Generators',
+    text:     "After the ice storm left us without power for three days, we called PowerHold. They sized a whole-home standby unit, installed the ATS, and walked us through the exercise schedule. Lights stayed on through the next outage. Highly recommend.",
   },
   {
     name:     'Sandra K.',
     location: 'Hewitt, TX',
     rating:   5,
     date:     'February 2026',
-    service:  'Heating Repair',
-    text:     'Woke up at 6am to a cold house with the heater completely out. Called Arctic Air and they had someone at my door by 9am. Fixed the same day, fair price. This is the kind of service you tell your neighbors about.',
+    service:  'Emergency Service',
+    text:     "Generator wouldn't start during a blackout. PowerHold had a tech at our house the same afternoon, replaced a failed starter and dirty fuel filter, and got us back online before dark. Fair price, clear communication.",
   },
   {
     name:     'James R.',
     location: 'Woodway, TX',
     rating:   5,
     date:     'January 2026',
-    service:  'Annual Maintenance Plan',
-    text:     'Been on their maintenance plan for two years now. They come out twice a year, always on time, always thorough. Caught a refrigerant issue last fall before it became a $3,000 emergency. The plan pays for itself every single year.',
+    service:  'Transfer Switches',
+    text:     "Had three companies quote transfer switch installs. PowerHold was honest about the load calculation we actually needed — not just upselling the biggest ATS. Clean install, code-safe, and they trained us on the manual override.",
   },
   {
     name:     'Patricia L.',
-    location: 'Robinson, TX',
+    location: 'Temple, TX',
     rating:   5,
     date:     'December 2025',
-    service:  'New Installation',
-    text:     'Had three companies quote us. Arctic Air was honest about what size system we actually needed — not just upselling the biggest unit. The install was clean, fast, and our energy bill dropped by almost 30% the first month.',
+    service:  'Load Calculations',
+    text:     "They measured our critical circuits, recommended a right-sized standby unit, and saved us from buying something oversized. The layout advice for the pad was excellent. Worth every penny.",
   },
   {
     name:     'David M.',
-    location: 'China Spring, TX',
+    location: 'Killeen, TX',
     rating:   5,
     date:     'November 2025',
-    service:  'Duct Cleaning',
-    text:     'We had duct cleaning done before winter and the difference in air quality was immediate. My wife has allergies and she said it was the best she\'d breathed indoors in years. Great crew, very professional, left the house spotless.',
+    service:  'Portable Generators',
+    text:     "We needed a portable + interlock for our ranch workshop. PowerHold installed a proper interlock kit (no dryer-plug hack), labeled circuits, and tested under load. Professional from start to finish.",
   },
   {
     name:     'Angela W.',
-    location: 'Temple, TX',
+    location: 'China Spring, TX',
     rating:   5,
     date:     'October 2025',
-    service:  'AC Repair',
-    text:     'AC went down on a Friday afternoon. I expected to wait all weekend but they came out Friday evening, diagnosed the problem fast, and had the part the next morning. No after-hours gouge either — totally fair rate. My new HVAC company for life.',
+    service:  'Generator Maintenance',
+    text:     "Signed up for their maintenance plan after years of ignoring oil changes and battery checks. Unit starts on the first crank every exercise cycle now. My go-to generator company for life.",
   },
   {
     name:     'Robert H.',
-    location: 'Killeen, TX',
+    location: 'Bellmead, TX',
     rating:   5,
     date:     'September 2025',
-    service:  'Smart Thermostat Install',
-    text:     'Got a Nest installed and properly configured by Arctic Air. They set up the schedule for our family and showed us how to use the app. The tech was patient and knowledgeable — didn\'t feel rushed at all. Highly recommend.',
+    service:  'Emergency Service',
+    text:     "Storm took out power and our old unit failed to transfer. PowerHold diagnosed a transfer switch contact issue, fixed it same visit, and left with everything tested. No after-hours gouge.",
   },
   {
     name:     'Cheryl B.',
-    location: 'Waco, TX',
+    location: 'McGregor, TX',
     rating:   5,
     date:     'August 2025',
-    service:  'Emergency Repair',
-    text:     'Called them at 10pm on a 102-degree day when our AC died. They answered immediately, had someone out within the hour, and fixed it that night. I have two small kids at home — this company genuinely saved us. Thank you.',
+    service:  'Standby Generators',
+    text:     "Rhea's crew installed our Generac standby with propane. Pad, gas, ATS, and panel work all coordinated. 2-year workmanship and clear pricing. Thank you PowerHold.",
   },
 ];
 
