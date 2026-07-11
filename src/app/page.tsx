@@ -33,8 +33,8 @@ export default function HomePage() {
     { icon: faCarBattery, title: "Portable Generators", body: "Portable units and code-safe interlock kits — reliable backup without a full standby install.", link: "/services/portable-generators", image: "/pages/home/services/service-2.jpg" },
     { icon: faExchangeAlt, title: "Transfer Switches", body: "Automatic and manual transfer switches installed the legal, utility-safe way. No dangerous backfeeds.", link: "/services/transfer-switches", image: "/pages/home/services/service-3.jpg" },
     { icon: faOilCan, title: "Generator Maintenance", body: "Oil, filters, batteries, exercise verification, and load testing so your unit starts when storms hit.", link: "/services/generator-maintenance", image: "/pages/home/services/service-4.jpg" },
-    { icon: faCalculator, title: "Load Calculations", body: "Honest load studies so you buy the right size generator — not the most expensive one.", link: "/services/load-calculations", image: "/pages/home/services/service-1.jpg" },
-    { icon: faTruckMedical, title: "Emergency Service", body: "Failed starts, transfer issues, and storm outages — same-day emergency generator service across Central Texas.", link: "/services/emergency-service", image: "/pages/home/services/service-2.jpg" },
+    { icon: faCalculator, title: "Load Calculations", body: "Honest load studies so you buy the right size generator — not the most expensive one.", link: "/services/load-calculations", image: "/pages/home/welcome/before.jpg" },
+    { icon: faTruckMedical, title: "Emergency Service", body: "Failed starts, transfer issues, and storm outages — same-day emergency generator service across Central Texas.", link: "/services/emergency-service", image: "/pages/home/welcome/after.jpg" },
   ];
 
   const metrics = [
