@@ -1,243 +1,64 @@
-// _archetype-library/hero-g-dashboard/Component.tsx
-//
-// Hero G: Live Control Panel — industrial chrome, counting gauges from props,
-// toggle switches, small meters. Framer-motion for counter animations.
+// Generator Services Hero — PowerHold (backup-power green)
+// Photographic parallax stage + an authentic standby-generator photo card
+// replaces the industrial control-panel dashboard. Real imagery, green brand
+// detailing, Share Tech headline. Background photo (power lines at dusk) and the
+// generator subject photo live in /public/pages/home/welcome.
 'use client';
-import React, { useEffect, useMemo, useState } from 'react';
-import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 import { PhoneIcon, ChevronIcon, CheckIcon } from './_shared/icons';
 import styles from './styles.module.scss';
 
-function parseGaugeValue(raw: string): { numeric: number | null; prefix: string; suffix: string } {
-  const match = raw.match(/^([^0-9.-]*)(-?[\d.]+)(.*)$/);
-  if (!match) return { numeric: null, prefix: '', suffix: raw };
-  const num = parseFloat(match[2]);
-  if (Number.isNaN(num)) return { numeric: null, prefix: '', suffix: raw };
-  return { numeric: num, prefix: match[1], suffix: match[3] };
-}
-
-function CountingValue({
-  value,
-  unit,
-  delay = 0,
-}: {
-  value: string;
-  unit?: string;
-  delay?: number;
-}) {
-  const parsed = useMemo(() => parseGaugeValue(value), [value]);
-  const motionVal = useMotionValue(0);
-  const display = useTransform(motionVal, (v) => {
-    if (parsed.numeric === null) return value;
-    const decimals = String(parsed.numeric).includes('.')
-      ? (String(parsed.numeric).split('.')[1]?.length ?? 0)
-      : 0;
-    const rounded = decimals > 0 ? v.toFixed(decimals) : String(Math.round(v));
-    return `${parsed.prefix}${rounded}${parsed.suffix}`;
-  });
-  const [text, setText] = useState(parsed.numeric === null ? value : `${parsed.prefix}0${parsed.suffix}`);
-
-  useEffect(() => {
-    if (parsed.numeric === null) {
-      setText(value);
-      return;
-    }
-    const controls = animate(motionVal, parsed.numeric, {
-      duration: 1.6,
-      delay,
-      ease: [0.22, 1, 0.36, 1],
-    });
-    const unsub = display.on('change', (v) => setText(v));
-    return () => {
-      controls.stop();
-      unsub();
-    };
-  }, [parsed.numeric, value, delay, motionVal, display]);
-
-  return (
-    <span className={styles.gaugeValue}>
-      {text}
-      {unit ? <span className={styles.gaugeUnit}>{unit}</span> : null}
-    </span>
-  );
-}
-
-function GaugeRow({
-  label,
-  value,
-  unit,
-  index,
-}: {
-  label: string;
-  value: string;
-  unit?: string;
-  index: number;
-}) {
-  const parsed = useMemo(() => parseGaugeValue(value), [value]);
-  const pct = parsed.numeric !== null
-    ? Math.min(100, Math.max(8, Math.abs(parsed.numeric) > 100 ? 72 : Math.abs(parsed.numeric)))
-    : 55 + (index % 3) * 12;
-
-  return (
-    <div className={styles.gauge}>
-      <div className={styles.gaugeHeader}>
-        <span className={styles.gaugeLabel}>{label}</span>
-        <CountingValue value={value} unit={unit} delay={0.45 + index * 0.12} />
-      </div>
-      <div className={styles.meterTrack} aria-hidden="true">
-        <motion.div
-          className={styles.meterFill}
-          initial={{ width: '0%' }}
-          animate={{ width: `${pct}%` }}
-          transition={{ duration: 1.35, delay: 0.5 + index * 0.1, ease: [0.34, 1.1, 0.64, 1] }}
-        />
-        <div className={styles.meterTicks}>
-          {[0, 1, 2, 3, 4].map((t) => (
-            <span key={t} className={styles.meterTick} />
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function ToggleSwitch({
-  label,
-  on,
-  index,
-}: {
-  label: string;
-  on: boolean;
-  index: number;
-}) {
-  return (
-    <motion.div
-      className={`${styles.toggle} ${on ? styles.toggleOn : styles.toggleOff}`}
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: 0.7 + index * 0.08 }}
-    >
-      <span className={styles.toggleLabel}>{label}</span>
-      <span className={styles.toggleTrack} aria-hidden="true">
-        <span className={styles.toggleThumb} />
-      </span>
-      <span className={styles.toggleState}>{on ? 'ON' : 'OFF'}</span>
-    </motion.div>
-  );
-}
-
-function PanelChrome({ children }: { children: React.ReactNode }) {
-  return (
-    <div className={`${styles.panel} ${styles.atsPanel}`}>
-      <div className={styles.panelBezel} aria-hidden="true">
-        <span className={styles.atsScrew} />
-        <span className={styles.panelTitle}>TRANSFER SWITCH</span>
-        <span className={styles.atsScrew} />
-      </div>
-      <div className={styles.atsSwitchRow} aria-hidden="true">
-        <span className={styles.atsSource}>UTILITY</span>
-        <span className={styles.atsToggle}>
-          <span className={styles.atsKnob} />
-        </span>
-        <span className={`${styles.atsSource} ${styles.atsSourceActive}`}>STANDBY</span>
-      </div>
-      <div className={styles.panelStatus} aria-hidden="true">
-        <span className={styles.statusLed} />
-        <span className={styles.statusText}>AUTO TRANSFER READY</span>
-        <span className={styles.statusTime}>ATS</span>
-      </div>
-      <div className={styles.panelBody}>{children}</div>
-    </div>
-  );
-}
-
 export default function WelcomePage() {
-const badgeText = 'Waco\'s Trusted Generator Pros — Since 2011';
-const headlineLines = [
-  'Standby. Portable.',
-  'Transfer Switches.',
-];
-const headlineAccent = 'PowerHold.';
-const subheadline = 'Standby Generators · Install · Service · Transfer Switches. Flat-rate pricing. Same-day emergency service. Storm-Ready Install Guarantee · 2-Year Workmanship. Serving Waco and Central Texas with TECL-aligned installers.';
-const primaryCta = { label: 'Call (254) 991-2121', href: 'tel:+12549912121' };
-const secondaryCta = { label: 'Free Estimate', href: '/contact' };
-const chips = [
-  'Same-Day Service',
-  'No Contracts',
-  'TECL-Aligned',
-  '15+ Yrs Local',
-  'Storm-Ready Guarantee',
-];
-const stats = [
-  {
-    "value": "500+",
-    "label": "Jobs Done"
-  },
-  {
-    "value": "4.9 ★",
-    "label": "Rating"
-  },
-  {
-    "value": "15+",
-    "label": "Years Local"
-  },
-  {
-    "value": "1-Yr",
-    "label": "Warranty"
-  }
-];
-const meterTarget = 72;
-const meterTopLabel = "Priority";
-const meterMidLabel = "Active";
-const meterBotLabel = "Standby";
-const particleColor = '#22c55e';
-const beforeImageSrc = '/pages/home/welcome/before.jpg';
-const afterImageSrc = '/pages/home/welcome/after.jpg';
-const beforeLabel = "No backup";
-const afterLabel = "Auto transfer";
-const mapCenterLabel = 'Service HQ';
-const mapPins = [
-  { label: 'Waco', x: 42, y: 48 },
-  { label: 'Temple', x: 68, y: 62 },
-  { label: 'Killeen', x: 58, y: 72 },
-];
-const coverageLabel = 'Central Texas coverage';
-const materials = [
-  { name: "Standby", swatch: "#22c55e", imageSrc: "/pages/home/welcome/mat-1.jpg" },
-  { name: "Portable", swatch: "#4ade80", imageSrc: "/pages/home/welcome/mat-2.jpg" },
-  { name: "ATS", swatch: "#16a34a", imageSrc: "/pages/home/welcome/mat-3.jpg" },
-  { name: "Maintenance", swatch: "#86efac", imageSrc: "/pages/home/welcome/mat-1.jpg" },
-  { name: "Load Study", swatch: "#15803d", imageSrc: "/pages/home/welcome/mat-2.jpg" },
-  { name: "Emergency", swatch: "#14532d", imageSrc: "/pages/home/welcome/mat-3.jpg" }
-];
-const quote = "Lights never blinked in the last ice storm. Transfer switch install was clean and permitted.";
-const authorName = "Carol D.";
-const authorMeta = "Standby install · China Spring";
-const rating = 5;
-const schematicLabel = "PowerHold schematic";
-const gauges = [
-  { label: "Installs", value: "1,800+" },
-  { label: "Rating", value: "4.9 ★" },
-  { label: "Storms", value: "Ready" },
-  { label: "Warranty", value: "2-yr labor" }
-];
-const toggles = [
-  { label: "Emergency ready", on: true },
-  { label: "Night dispatch", on: true },
-  { label: "Fleet online", on: true }
-];
-const textureSrc = '/pages/home/welcome/hero-main.jpg';
-const textureAlt = 'Texture';
-const accentWord = "PowerHold";
+  const reduceMotion = useReducedMotion();
+  const heroRef = useRef<HTMLElement>(null);
 
-  // Stable serial for SSR/hydration — avoid Math.random in render of serial
-  // by using a fixed-looking decorative suffix derived from gauge count.
-  const serial = `CH-${String(gauges.length).padStart(2, '0')}`;
+  // Scroll-linked parallax on the background photo. Disabled under reduced-motion.
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', reduceMotion ? '0%' : '16%']);
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1.08, reduceMotion ? 1.08 : 1.16]);
+
+  const badgeText = 'Waco\'s Trusted Generator Pros — Since 2011';
+  const headlineLines = [
+    'Standby. Portable.',
+    'Transfer Switches.',
+  ];
+  const headlineAccent = 'PowerHold.';
+  const subheadline = 'Standby Generators · Install · Service · Transfer Switches. Flat-rate pricing. Same-day emergency service. Storm-Ready Install Guarantee · 2-Year Workmanship. Serving Waco and Central Texas with TECL-aligned installers.';
+  const primaryCta = { label: 'Call (254) 991-2121', href: 'tel:+12549912121' };
+  const secondaryCta = { label: 'Free Estimate', href: '/contact' };
+  const chips = [
+    'Same-Day Service',
+    'No Contracts',
+    'TECL-Aligned',
+    '15+ Yrs Local',
+    'Storm-Ready Guarantee',
+  ];
 
   return (
-    <section className={styles.hero} aria-label="Hero">
-      <div className={styles.shard} aria-hidden="true" />
+    <section ref={heroRef} className={styles.hero} aria-label="Hero">
+      {/* Photographic parallax background — power lines at dusk */}
+      <motion.div
+        className={styles.bgLayer}
+        style={{ y: bgY, scale: bgScale }}
+        aria-hidden="true"
+      >
+        <Image
+          src="/pages/home/welcome/hero-main.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className={styles.bgImage}
+        />
+      </motion.div>
+      {/* Green scrim keeps the headline legible and on-brand */}
+      <div className={styles.scrim} aria-hidden="true" />
 
       <div className={styles.layout}>
         <div className={styles.content}>
@@ -300,42 +121,38 @@ const accentWord = "PowerHold";
           </motion.div>
         </div>
 
+        {/* Authentic standby-generator photo — the ownable image, framed as a spec card */}
         <motion.div
           className={styles.visual}
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, delay: 0.28, ease: 'easeOut' }}
         >
-          <PanelChrome>
-            <div className={styles.gaugeList}>
-              {gauges.map((g, i) => (
-                <GaugeRow
-                  key={g.label}
-                  label={g.label}
-                  value={g.value}
-                  unit={undefined}
-                  index={i}
-                />
-              ))}
+          <div className={styles.photoCard}>
+            <Image
+              src="/pages/home/welcome/generator-unit.jpg"
+              alt="A standby generator enclosure installed beside a commercial building"
+              fill
+              priority
+              sizes="(max-width: 960px) 88vw, 440px"
+              className={styles.photo}
+            />
+            <div className={styles.photoGlaze} aria-hidden="true" />
+
+            <div className={styles.photoBadge}>
+              <span className={styles.photoBadgeDot} />
+              Standby Power · On-Site
             </div>
-            {toggles.length > 0 && (
-              <div className={styles.toggleList}>
-                {toggles.map((t, i) => (
-                  <ToggleSwitch key={t.label} label={t.label} on={t.on} index={i} />
-                ))}
-              </div>
-            )}
-            <div className={styles.panelFooterStatic} aria-hidden="true">
-              <div className={styles.miniMeter}>
-                <span className={styles.miniMeterBar} />
-                <span className={styles.miniMeterBar} />
-                <span className={styles.miniMeterBar} />
-                <span className={styles.miniMeterBar} />
-                <span className={styles.miniMeterBar} />
-              </div>
-              <span className={styles.footerSerial}>{serial}</span>
+
+            <div className={styles.specCard}>
+              <span className={styles.specRow}>
+                <CheckIcon size={10} /> Storm-Ready install guarantee
+              </span>
+              <span className={styles.specRow}>
+                <CheckIcon size={10} /> 2-year workmanship warranty
+              </span>
             </div>
-          </PanelChrome>
+          </div>
         </motion.div>
       </div>
     </section>
