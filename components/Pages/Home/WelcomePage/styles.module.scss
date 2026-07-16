@@ -49,10 +49,10 @@
   z-index: 1;
   pointer-events: none;
   background:
-    radial-gradient(120% 90% at 84% 18%, rgba(34, 197, 94, 0.20) 0%, rgba(34, 197, 94, 0) 55%),
-    radial-gradient(90% 80% at 8% 92%, rgba(21, 128, 61, 0.28) 0%, rgba(21, 128, 61, 0) 60%),
-    linear-gradient(100deg, rgba(3, 22, 12, 0.95) 0%, rgba(4, 28, 16, 0.84) 42%, rgba(5, 34, 20, 0.52) 74%, rgba(5, 34, 20, 0.36) 100%),
-    linear-gradient(180deg, rgba(3, 18, 10, 0.4) 0%, rgba(3, 18, 10, 0) 34%, rgba(3, 18, 10, 0.62) 100%);
+    radial-gradient(120% 90% at 84% 18%, rgba(197, 146, 34, 0.20) 0%, rgba(197, 146, 34, 0) 55%),
+    radial-gradient(90% 80% at 8% 92%, rgba(128, 95, 21, 0.28) 0%, rgba(128, 95, 21, 0) 60%),
+    linear-gradient(100deg, rgba(22, 18, 3, 0.95) 0%, rgba(28, 24, 4, 0.84) 42%, rgba(34, 29, 5, 0.52) 74%, rgba(34, 29, 5, 0.36) 100%),
+    linear-gradient(180deg, rgba(18, 15, 3, 0.4) 0%, rgba(18, 15, 3, 0) 34%, rgba(18, 15, 3, 0.62) 100%);
 }
 
 .layout {
@@ -260,7 +260,7 @@
   box-shadow:
     0 1px 0 rgba($offwhite, 0.12) inset,
     0 30px 60px -20px rgba(0, 0, 0, 0.7),
-    0 0 0 6px rgba(34, 197, 94, 0.08);
+    0 0 0 6px rgba(197, 146, 34, 0.08);
 }
 
 .photo {
@@ -273,8 +273,8 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(3, 18, 10, 0) 44%, rgba(3, 18, 10, 0.76) 100%),
-    linear-gradient(300deg, rgba(34, 197, 94, 0.18) 0%, rgba(34, 197, 94, 0) 46%);
+    linear-gradient(180deg, rgba(18, 15, 3, 0) 44%, rgba(18, 15, 3, 0.76) 100%),
+    linear-gradient(300deg, rgba(197, 146, 34, 0.18) 0%, rgba(197, 146, 34, 0) 46%);
 }
 
 .photoBadge {
@@ -290,7 +290,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: $offwhite;
-  background: rgba(3, 18, 10, 0.62);
+  background: rgba(18, 15, 3, 0.62);
   backdrop-filter: blur(6px);
   border: 1px solid rgba($orange, 0.4);
   border-radius: $radius-pill;
@@ -316,7 +316,7 @@
   gap: 0.45rem;
   padding: 0.85rem 1rem;
   border-radius: $radius-md;
-  background: rgba(3, 18, 10, 0.6);
+  background: rgba(18, 15, 3, 0.6);
   backdrop-filter: blur(8px);
   border: 1px solid rgba($orange, 0.25);
 }

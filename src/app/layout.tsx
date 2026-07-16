@@ -52,8 +52,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#052e16" },
-    { media: "(prefers-color-scheme: dark)",  color: "#052e16" },
+    { media: "(prefers-color-scheme: light)", color: "#2e2305" },
+    { media: "(prefers-color-scheme: dark)",  color: "#2e2305" },
   ],
   colorScheme: "dark",
 };
@@ -158,12 +158,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </head>
       <body>
         <ConditionalShell><Header /></ConditionalShell>
-        <NextTopLoader color="#22c55e" showSpinner={false} />
+        <NextTopLoader color="#ca8a04" showSpinner={false} />
         <Suspense fallback={null}><Analytics /></Suspense>
         <MapProvider>
           <Suspense fallback={
-            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%", height: "100vh", background: "#052e16" }}>
-              <PulseLoader size={50} color="#22c55e" />
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%", height: "100vh", background: "#2e2305" }}>
+              <PulseLoader size={50} color="#ca8a04" />
             </div>
           }>
             <JourneyTrackerProvider>{children}</JourneyTrackerProvider>
